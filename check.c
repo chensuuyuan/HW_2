@@ -5,15 +5,15 @@
 #define CHUNK_SIZE 7  // The size of each group to check
 
 int check_characters(char c) {
-    // Check if the character is in the range 1-9 or a-f
-    return ((c >= '1' && c <= '9') || (c >= 'a' && c <= 'f'));
+    // Check if the character is in the range 0-9 or a-f
+    return ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || c== 10);
 }
 
 int main() {
     FILE *file = fopen("hash", "r");
     if (file == NULL) {
         printf("Failed to open the file 'hash'\n");
-        return 1;
+        return 0;
     }
 
     // Define a buffer to read in chunks of 7 characters
@@ -37,6 +37,7 @@ int main() {
             int valid = 1;
             for (int i = 0; i < CHUNK_SIZE; i++) {
                 if (!check_characters(buffer[i])) {
+                    printf("%c",buffer[i]);
                     valid = 0;
                     break;
                 }
