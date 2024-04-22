@@ -37,7 +37,7 @@ int main() {
             int valid = 1;
             for (int i = 0; i < CHUNK_SIZE; i++) {
                 if (!check_characters(buffer[i])) {
-                    printf("%c",buffer[i]);
+//                    printf("%c",buffer[i]);
                     valid = 0;
                     break;
                 }
@@ -73,6 +73,6 @@ int main() {
     }
     free(chunks);
     fclose(file);
-
+system("./char");
     return 0;
 }

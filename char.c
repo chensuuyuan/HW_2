@@ -9,7 +9,7 @@ int main() {
     FILE *file = fopen("hash", "r");
     if (file == NULL) {
         printf("Failed to open the file 'hash'\n");
-        return 1;
+        return 0;
     }
 
     int c;
@@ -20,7 +20,9 @@ int main() {
         // 检查字符是否在0~9或a~f之间
         if (!is_valid_hex_char(c)) {
             // 输出不在范围内的字符
+           if(c>'f' && c <= 'z'){
             printf("%c\n", c);
+           }
             found_invalid = 1;
         }
     }
